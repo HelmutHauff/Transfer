@@ -16,11 +16,6 @@
   'use strict';
 
   // DECLARATION
-  var myString = "Hello Autark";
-  var myNumber = 23;
-  var myBoolean = false;
-  var myObject = {};
-  var myFunction = function () {};
 
   // FUNCTION
 
