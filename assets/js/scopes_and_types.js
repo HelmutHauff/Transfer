@@ -62,7 +62,7 @@
 
 }());
 
-!(function () {
+window.onload = function () {
   'use strict';
 
   var myString = "Hello Autark";
@@ -79,4 +79,4 @@
   window.Autark.log("myObject", myObject);
   window.Autark.log("myFunction", myFunction);
 
-})();
+};
