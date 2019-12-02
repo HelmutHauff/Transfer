@@ -3,7 +3,7 @@
  * @desc Variablen und Scopes erforschen
  *
  * @package Transfer
- * @module scopes_and_types
+ * @module Autark
  * @author Helmut <helmut.hauff@autark.com>
  * @version v1.0.0
  * @since 2019-12-02
@@ -23,6 +23,18 @@
   var myFunction = function () {};
 
   // FUNCTION
+
+  /**
+   * Funktion zum Protokollieren von Variablen (Name, Typ, Wert).
+   * 
+   * @param {string} name - Name der Variable. 
+   * @param {any} obj - Variable die protokolliert werden soll.
+   * 
+   * @example
+   * 
+   *  var myString = "Hello Autark";
+   *  window.Autark.log("myString", myString);
+   */
   function _log(name, obj) {
     console.log(name + ' {' + typeof (obj) + '}: ' + obj);
   }
