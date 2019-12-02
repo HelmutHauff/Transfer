@@ -32,7 +32,7 @@
    *  // result = 'mynumber {number}: 23'
    */
   function _buildLogStringFromVariable(name, obj) {
-    return  name + ' {' + typeof (obj) + '}: ' + obj;
+    return name + ' {' + typeof (obj) + '}: ' + obj;
   }
 
   /**
