@@ -20,6 +20,22 @@
   // FUNCTION
 
   /**
+   * Typeermittlung der übergebenen Variable (Arrays werden gesondert ausgewiesen).
+   * @param {any} obj - Variable dessen Typ ermittelt werden soll.
+   * 
+   * @example
+   *  var myArray = [1, 2];
+   *  var result = _getType(myArray));
+   *  // result = 'array';
+   */
+  function _getType(obj) {
+    if (Array.isArray(obj) === true) {
+      return 'array';
+    }
+    return typeof(obj);
+  }
+
+  /**
    * Erstellen einer Zeichenkette aus Variablennamen und Variable.
    * @param {string} name - Name der Variable. 
    * @param {any} obj - Variable die protokolliert werden soll.
@@ -32,7 +48,7 @@
    *  // result = 'mynumber {number}: 23'
    */
   function _buildLogStringFromVariable(name, obj) {
-    return name + ' {' + typeof (obj) + '}: ' + obj;
+    return name + ' {' + _getType(obj) + '}: ' + obj;
   }
 
   /**
