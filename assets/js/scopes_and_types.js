@@ -53,8 +53,8 @@
   }
 
   function _main() {
-    window.Autark = {} || window.Autark;
-    window.Autark.log = _log;
+    window.tools = {} || window.tools;
+    window.tools.log = _log;
   }
 
   // CONTROL
@@ -72,11 +72,11 @@ window.onload = function () {
   var myObject = {};
   var myFunction = function () {};
 
-  window.Autark.log("myString", myString);
-  window.Autark.log("mynumber", myNumber);
-  window.Autark.log("myBoolean", myBoolean);
-  window.Autark.log("myArray", myArray);
-  window.Autark.log("myObject", myObject);
-  window.Autark.log("myFunction", myFunction);
+  window.tools.log("myString", myString);
+  window.tools.log("mynumber", myNumber);
+  window.tools.log("myBoolean", myBoolean);
+  window.tools.log("myArray", myArray);
+  window.tools.log("myObject", myObject);
+  window.tools.log("myFunction", myFunction);
 
 };
