@@ -25,7 +25,23 @@
   // FUNCTION
 
   /**
-   * Funktion zum Protokollieren von Variablen (Name, Typ, Wert).
+   * Erstellen einer Zeichenkette aus Variablennamen und Variable.
+   * @param {string} name - Name der Variable. 
+   * @param {any} obj - Variable die protokolliert werden soll.
+   * @returns {string} Text zur Variable im Format '<name> {<typ>}: <wert>'.
+   * 
+   * @example
+   * 
+   *  var myNumber = 23;
+   *  var result = _buildLogStringFromVariable("myNumber", myNumber);
+   *  // result = 'mynumber {number}: 23'
+   */
+  function _buildLogStringFromVariable(name, obj) {
+    return  name + ' {' + typeof (obj) + '}: ' + obj;
+  }
+
+  /**
+   * Funktion zum Protokollieren von Variablen (Name, Typ, Wert) auf der Konsole.
    * 
    * @param {string} name - Name der Variable. 
    * @param {any} obj - Variable die protokolliert werden soll.
@@ -34,9 +50,11 @@
    * 
    *  var myString = "Hello Autark";
    *  window.Autark.log("myString", myString);
+   *  // Ausgabe: 'myString {string}: Hello Autark'
    */
   function _log(name, obj) {
-    console.log(name + ' {' + typeof (obj) + '}: ' + obj);
+    var logtext = _buildLogStringFromVariable(name, obj);
+    console.log(logtext);
   }
 
   function _main() {
