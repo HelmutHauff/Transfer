@@ -5,7 +5,7 @@
  * @package Transfer
  * @module Autark
  * @author Helmut <helmut.hauff@autark.com>
- * @version v1.0.0
+ * @version v1.1.0
  * @since 2019-12-02
  * @see i.e. inspired by Michael <michael.reichart@gfu.net>
  * @license MIT {https://opensource.org/licenses/MIT}
