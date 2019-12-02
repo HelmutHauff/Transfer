@@ -1,13 +1,13 @@
 /** 
  *
- *  @desc 
+ * @desc Variablen und Scopes erforschen
  *
- * @package Webapplication
- * @module 
+ * @package Transfer
+ * @module scopes_and_types
  * @author Helmut <helmut.hauff@autark.com>
  * @version v1.0.0
  * @since 2019-12-02
- * @see i.e. inspired by ... {link to}
+ * @see i.e. inspired by Michael <michael.reichart@gfu.net>
  * @license MIT {https://opensource.org/licenses/MIT}
  * @copyright (c) 2019 Helmut Hauff, Baunatal
  */
