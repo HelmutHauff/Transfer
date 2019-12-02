@@ -68,12 +68,14 @@
   var myString = "Hello Autark";
   var myNumber = 23;
   var myBoolean = false;
+  var myArray = [1, 2];
   var myObject = {};
   var myFunction = function () {};
 
   window.Autark.log("myString", myString);
   window.Autark.log("mynumber", myNumber);
   window.Autark.log("myBoolean", myBoolean);
+  window.Autark.log("myArray", myArray);
   window.Autark.log("myObject", myObject);
   window.Autark.log("myFunction", myFunction);
 
