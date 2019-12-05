@@ -20,8 +20,8 @@
   // FUNCTION
 
   /**
-   * Typeermittlung der übergebenen Variable (Arrays werden gesondert ausgewiesen).
-   * @param {any} obj - Variable dessen Typ ermittelt werden soll.
+   * Get the type of the passed variable (arrays will be marked as 'array')
+   * @param {any} obj - Variable that type should be determine.
    * 
    * @example
    *  var myArray = [1, 2];
@@ -36,10 +36,10 @@
   }
 
   /**
-   * Erstellen einer Zeichenkette aus Variablennamen und Variable.
-   * @param {string} name - Name der Variable. 
-   * @param {any} obj - Variable die protokolliert werden soll.
-   * @returns {string} Text zur Variable im Format '<name> {<typ>}: <wert>'.
+   * Creation of a string which contains then name, type and value of the passed variable.
+   * @param {string} name - Name of the variable. 
+   * @param {any} obj - variable that should logged.
+   * @returns {string} Logging text of the variable (Format '<name> {<type>}: <value>').
    * 
    * @example
    * 
@@ -52,10 +52,10 @@
   }
 
   /**
-   * Funktion zum Protokollieren von Variablen (Name, Typ, Wert) auf der Konsole.
+   * Function to log a variable (name, type, value) on the console.
    * 
-   * @param {string} name - Name der Variable. 
-   * @param {any} obj - Variable die protokolliert werden soll.
+   * @param {string} name - Name of the variable. 
+   * @param {any} obj - variable that should logged.
    * 
    * @example
    * 
