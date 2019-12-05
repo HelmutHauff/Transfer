@@ -32,7 +32,7 @@
     if (Array.isArray(obj) === true) {
       return 'array';
     }
-    return typeof(obj);
+    return typeof (obj);
   }
 
   /**
