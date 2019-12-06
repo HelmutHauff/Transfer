@@ -53,14 +53,14 @@
       _name = name || undefined,
       _obj = obj || undefined;
 
-    if (_name === undefined) return 'Parameter "name" is undefined';
-    if (_obj === undefined) return 'Parameter "obj" is undefined';
+    if (_name === undefined) return 'warn: Parameter "name" is undefined';
+    if (_obj === undefined) return 'warn: Parameter "obj" is undefined';
 
     try {
       _message = name + ' {' + _getType(obj) + '}: ' + obj;
       return _message;
     } catch (error) {
-      return 'error occured: ' + error;
+      return 'error: ' + error;
     }
   }
 
