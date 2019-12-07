@@ -37,9 +37,9 @@
 
     /**
      * Creation of a string which contains then name, type and value of the passed variable.
-     * @param {string} name - Name of the variable. 
-     * @param {any} obj - variable that should logged.
-     * @returns {string} Logging text of the variable (Format '<name> {<type>}: <value>').
+     * @param   {string} name - Name of the variable. 
+     * @param   {*}      obj  - Variable that should logged.
+     * @returns {string}        Logging text of the variable (Format '<name> {<type>}: <value>').
      * 
      * @example
      * 
@@ -68,7 +68,7 @@
      * Function to log a variable (name, type, value) on the console.
      * 
      * @param {string} name - Name of the variable. 
-     * @param {any} obj - variable that should logged.
+     * @param {*}      obj - variable that should logged.
      * 
      * @example
      * 
