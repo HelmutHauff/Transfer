@@ -5,7 +5,7 @@
  * @package Transfer
  * @module Autark
  * @author Helmut <helmut.hauff@autark.com>
- * @version v1.1.0
+ * @version v1.1.1
  * @since 2019-12-02
  * @see i.e. inspired by Michael <michael.reichart@gfu.net>
  * @license MIT {https://opensource.org/licenses/MIT}
@@ -48,7 +48,20 @@
    *  // result = 'mynumber {number}: 23'
    */
   function _buildLogStringFromVariable(name, obj) {
-    return name + ' {' + _getType(obj) + '}: ' + obj;
+    let
+      _message,
+      _name = name || undefined,
+      _obj = obj || undefined;
+
+    if (_name === undefined) return 'warn: Parameter "name" is undefined';
+    if (_obj === undefined) return 'warn: Parameter "obj" is undefined';
+
+    try {
+      _message = name + ' {' + _getType(obj) + '}: ' + obj;
+      return _message;
+    } catch (error) {
+      return 'error: ' + error;
+    }
   }
 
   /**
@@ -61,13 +74,17 @@
    * 
    *  var myString = "Hello Autark";
    *  window.Autark.log("myString", myString);
-   *  // Ausgabe: 'myString {string}: Hello Autark'
+   *  // Output: 'myString {string}: Hello Autark'
    */
   function _log(name, obj) {
-    var logtext = _buildLogStringFromVariable(name, obj);
-    console.log(logtext);
+    var _logtext = _buildLogStringFromVariable(name, obj);
+    console.log(_logtext);
   }
 
+  /**
+   * The main aka. module init function.
+   * Infrastructure, only used by CONTROL.
+   */
   function _main() {
     window.tools = {} || window.tools;
     window.tools.log = _log;
@@ -81,12 +98,13 @@
 window.onload = function () {
   'use strict';
 
-  var myString = "Hello Autark";
-  var myNumber = 23;
-  var myBoolean = false;
-  var myArray = [1, 2];
-  var myObject = {};
-  var myFunction = function () {};
+  let
+    myString = "Hello Autark",
+    myNumber = 23,
+    myBoolean = false,
+    myArray = [1, 2],
+    myObject = {},
+    myFunction = function () {};
 
   window.tools.log("myString", myString);
   window.tools.log("mynumber", myNumber);
