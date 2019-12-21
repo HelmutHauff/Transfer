@@ -19,7 +19,7 @@
 
     // FUNCTION
 
-        /**
+    /**
      * Get the type of the passed variable (arrays will be marked as 'array')
      * @param {any} obj - Variable that type should be determine.
      * 
@@ -51,9 +51,9 @@
         let
             _message = '';
 
-        if  (_isParameterDefined({name, obj}) === false) {
+        if (_isParameterDefined({name, obj}) === false) {
             return '';
-        }    
+        }
 
         try {
             _message = name + ' {' + _getType(obj) + '}: ' + obj;
@@ -125,9 +125,7 @@
      */
     function _findRootBySelector(name) {
         let _node = document.querySelector(name);
-        if (_isParameterDefined({
-                _node
-            })) {
+        if (_isParameterDefined({_node})) {
             return _node;
         } else {
             window.tools.logWarn('can not find root ("' + name + '") as DOM selector');
@@ -141,9 +139,7 @@
      * @param {HTMLElement|string} root - Root element, or seletor as string
      */
     function _getRootElement(root) {
-        if (_isParameterDefined({
-                root
-            }) === false) return;
+        if (_isParameterDefined({root}) === false) return;
         try {
             switch (typeof (root)) {
                 case 'HMTLElement':
@@ -181,10 +177,7 @@
         let
             _listitem = document.createElement('li');
 
-        if (_isParameterDefined({
-                text,
-                link
-            }) === false) return _listitem;
+        if (_isParameterDefined({text, link}) === false) return _listitem;
 
         try {
             let a = document.createElement('a');
@@ -205,9 +198,7 @@
      * @returns {HTMLElement} - Element that contains the navigation or undefined if an error occurs
      */
     function _createNavigation(data) {
-        if (_isParameterDefined({
-                data
-            }) === false) return undefined;
+        if (_isParameterDefined({data}) === false) return undefined;
         if (_getType(data) !== 'array') {
             window.tools.logWarn('Parameter is not an array. ' + _buildLogStringFromVariable('data', data));
             return undefined;
@@ -234,9 +225,7 @@
      * @param {HTMLElement} nav - Element that contains the navigation 
      */
     function _appendNavigation(root, nav) {
-        if (_isParameterDefined({
-                nav
-            }) === false) return;
+        if (_isParameterDefined({nav}) === false) return;
 
         try {
             let _node = _getRootElement(root);
