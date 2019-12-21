@@ -19,6 +19,50 @@
 
     // FUNCTION
 
+        /**
+     * Get the type of the passed variable (arrays will be marked as 'array')
+     * @param {any} obj - Variable that type should be determine.
+     * 
+     * @example
+     *  var myArray = [1, 2];
+     *  var result = _getType(myArray));
+     *  // result = 'array';
+     */
+    function _getType(obj) {
+        if (Array.isArray(obj) === true) {
+            return 'array';
+        }
+        return typeof (obj);
+    }
+
+    /**
+     * Creation of a string which contains then name, type and value of the passed variable.
+     * @param {string} name - Name of the variable. 
+     * @param {any} obj - variable that should logged.
+     * @returns {string} Logging text of the variable (Format '<name> {<type>}: <value>').
+     * 
+     * @example
+     * 
+     *  var myNumber = 23;
+     *  var result = _buildLogStringFromVariable("myNumber", myNumber);
+     *  // result = 'mynumber {number}: 23'
+     */
+    function _buildLogStringFromVariable(name, obj) {
+        let
+            _message = '';
+
+        if  (_isParameterDefined({name, obj}) === false) {
+            return '';
+        }    
+
+        try {
+            _message = name + ' {' + _getType(obj) + '}: ' + obj;
+        } catch (error) {
+            window.tools.logError(error);
+        }
+        return _message;
+    }
+
     /**
      * Checks if the passed variable is an object.
      * If the result is false, a warning is written to the log.
@@ -164,6 +208,10 @@
         if (_isParameterDefined({
                 data
             }) === false) return undefined;
+        if (_getType(data) !== 'array') {
+            window.tools.logWarn('Parameter is not an array. ' + _buildLogStringFromVariable('data', data));
+            return undefined;
+        }
 
         try {
             let nav = document.createElement('nav');
