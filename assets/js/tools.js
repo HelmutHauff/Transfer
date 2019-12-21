@@ -74,6 +74,11 @@
         return true;
     }
 
+    /**
+     * Get element by selector name.
+     * @param {string} name - Name of the selector.
+     * @returns {HTMLElement} - Element or undefined if no selector was found.
+     */
     function _findRootBySelector(name) {
         let _node = document.querySelector(name);
         if (_isParameterDefined({
@@ -86,6 +91,11 @@
         return _node;
     }
 
+    /**
+     * Get the root element from the given parameter.
+     * 
+     * @param {HTMLElement|string} root - Root element, or seletor as string
+     */
     function _getRootElement(root) {
         if (_isParameterDefined({
                 root
