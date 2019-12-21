@@ -34,5 +34,5 @@ window.onload = function () {
         }
     ]
 
-    window.tools.addNavigation(navArray);
+    window.tools.addNavigation('header', navArray);
 };
