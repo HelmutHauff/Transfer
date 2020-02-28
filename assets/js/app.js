@@ -22,15 +22,15 @@ window.onload = function () {
         },
         {
             "text": "Work",
-            "link": "work.html"
+            "link": "assets/content/work.html"
         },
         {
             "text": "Contact",
-            "link": "contact.html"
+            "link": "assets/content/contact.html"
         },
         {
             "text": "Imprint",
-            "link": "imprint.html"
+            "link": "assets/content/imprint.html"
         }
     ]
 

@@ -51,7 +51,10 @@
         let
             _message = '';
 
-        if (_isParameterDefined({name, obj}) === false) {
+        if (_isParameterDefined({
+                name,
+                obj
+            }) === false) {
             return '';
         }
 
@@ -125,7 +128,9 @@
      */
     function _findRootBySelector(name) {
         let _node = document.querySelector(name);
-        if (_isParameterDefined({_node})) {
+        if (_isParameterDefined({
+                _node
+            })) {
             return _node;
         } else {
             window.tools.logWarn('can not find root ("' + name + '") as DOM selector');
@@ -139,10 +144,13 @@
      * @param {HTMLElement|string} root - Root element, or seletor as string
      */
     function _getRootElement(root) {
-        if (_isParameterDefined({root}) === false) return;
+        if (_isParameterDefined({
+                root
+            }) === false) return;
         try {
             switch (typeof (root)) {
-                case 'HMTLElement':
+                case 'HMTLElement': // ToDo: Unit-test für diesen Fall erstellen und prüfen.
+                case 'object':
                     return root;
                     break;
                 case 'string':
@@ -177,7 +185,10 @@
         let
             _listitem = document.createElement('li');
 
-        if (_isParameterDefined({text, link}) === false) return _listitem;
+        if (_isParameterDefined({
+                text,
+                link
+            }) === false) return _listitem;
 
         try {
             let a = document.createElement('a');
@@ -198,7 +209,9 @@
      * @returns {HTMLElement} - Element that contains the navigation or undefined if an error occurs
      */
     function _createNavigation(data) {
-        if (_isParameterDefined({data}) === false) return undefined;
+        if (_isParameterDefined({
+                data
+            }) === false) return undefined;
         if (_getType(data) !== 'array') {
             window.tools.logWarn('Parameter is not an array. ' + _buildLogStringFromVariable('data', data));
             return undefined;
@@ -225,7 +238,9 @@
      * @param {HTMLElement} nav - Element that contains the navigation 
      */
     function _appendNavigation(root, nav) {
-        if (_isParameterDefined({nav}) === false) return;
+        if (_isParameterDefined({
+                nav
+            }) === false) return;
 
         try {
             let _node = _getRootElement(root);
@@ -244,6 +259,36 @@
     function _addNavigation(root, data) {
         let _nav = _createNavigation(data);
         _appendNavigation(root, _nav);
+        _setEventListener(_nav)
+    }
+
+    /**
+     * Load the content from the Url to the given context.
+     * 
+     * @param {string} url - Url of the content.
+     * @param {HTMLElement} context - Where to insert the loaded content. 
+     */
+    function _loadContent(url, context) {
+        let _context = context;
+        let _request = new XMLHttpRequest();
+        _request.addEventListener('load', (event) => {
+            _context.innerHTML = _request.responseText;
+        });
+        _request.open('GET', url);
+        _request.send();
+    }
+
+    /**
+     * Set click event listener for content loading.
+     * 
+     * @param {HTMLElement} elem - The Element where to add a click event.
+     */
+    function _setEventListener(elem) {
+        let _elem = elem;
+        _elem.addEventListener('click', (event) => {
+            event.preventDefault();
+            _loadContent(event.target.pathname, document.querySelector('main'));
+        });
     }
 
     /**
@@ -253,6 +298,7 @@
     function _main() {
         window.tools = window.tools || {};
         window.tools.addNavigation = _addNavigation;
+        window.tools.loadContent = _loadContent;
     }
 
     // CONTROL
