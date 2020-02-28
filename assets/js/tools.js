@@ -287,7 +287,7 @@
         let _elem = elem;
         _elem.addEventListener('click', (event) => {
             event.preventDefault();
-            _loadContent(event.target.pathname, document.querySelector('main'));
+            _loadContent(event.target.pathname, document.getElementById('content'));
         });
     }
 
