@@ -269,13 +269,17 @@
      * @param {HTMLElement} context - Where to insert the loaded content. 
      */
     function _loadContent(url, context) {
-        let _context = context;
-        let _request = new XMLHttpRequest();
-        _request.addEventListener('load', (event) => {
-            _context.innerHTML = _request.responseText;
-        });
-        _request.open('GET', url);
-        _request.send();
+        try {
+            let _context = context;
+            let _request = new XMLHttpRequest();
+            _request.addEventListener('load', (event) => {
+                _context.innerHTML = _request.responseText;
+            });
+            _request.open('GET', url);
+            _request.send();
+        } catch (error) {
+            window.tools.logError(error);
+        }
     }
 
     /**
@@ -284,11 +288,15 @@
      * @param {HTMLElement} elem - The Element where to add a click event.
      */
     function _setEventListener(elem) {
-        let _elem = elem;
-        _elem.addEventListener('click', (event) => {
-            event.preventDefault();
-            _loadContent(event.target.pathname, document.getElementById('content'));
-        });
+        try {
+            let _elem = elem;
+            _elem.addEventListener('click', (event) => {
+                event.preventDefault();
+                _loadContent(event.target.pathname, document.getElementById('content'));
+            });
+        } catch (error) {
+            window.tools.logError(error);
+        }
     }
 
     /**
