@@ -18,7 +18,7 @@ window.onload = function () {
 
     let navArray = [{
             "text": "Home",
-            "link": "index.html"
+            "link": "assets/content/home.html"
         },
         {
             "text": "Work",
